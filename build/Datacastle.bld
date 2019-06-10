@@ -385,15 +385,6 @@ STARTING BUILD %BUILD_LABEL% AT %BUILD_DATE%
 			<indent type='3'>2</indent>
 			<name>Check Free Space on D:\ Drive</name>
 		</step>
-		<step action='Run Program'>
-			<command>net use \\%MACBUILD%\BuildMachineUsageOnly /u:%MACBUILD_USER% %MACBUILD_PWD% </command>
-			<condcomparison type='3'>0</condcomparison>
-			<condexpr>%DoNotIncludeMacClient%</condexpr>
-			<indent type='3'>2</indent>
-			<name>Check connection to mac build machine</name>
-			<outputfrom type='3'>1</outputfrom>
-			<precommand>echo Attempting to connect to: \\%MACBUILD%\BuildMachineUsageOnly ...</precommand>
-		</step>
 		<step action='Group'>
 			<indent type='3'>1</indent>
 			<name>Completion Phase</name>
