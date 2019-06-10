@@ -10,7 +10,7 @@ Param (
 	[parameter(Mandatory=$true, HelpMessage="IP or FQHN of a Mac build machien to control")] [string]  $MacBuild,
 	[parameter(Mandatory=$true, HelpMessage="Credentials for the Mac Build Machine")] [string]  $MacBuildUsername,
 	[parameter(Mandatory=$true, HelpMessage="Credentials for the Mac Build Machine")] [string]  $MacBuildPassword,
-	[parameter(HelpMessage="Index of the brand being built")] [int] $BuildBrandIndex = 0,
+	[parameter(HelpMessage="Index of the brand being built")] [string] $BuildBrandIndex = 0,
 	[parameter(HelpMessage="Defaults to 1 to obfuscate, else specify 0 to NOT")] [bool] $ObfuscateServer = $true,
 	[parameter(HelpMessage="Defaults to 1 to skip obfuscating the client, else specify 0 to do so")] [bool] $SkipClientObfuscation = $true,
 	[parameter(HelpMessage="CSV for skipping components")] [string []] $SkipComponents = "",
