@@ -289,16 +289,6 @@ If we don't, the GUI fails to build the Wix installer with stdafx.cpp compiler e
 			<indent type='3'>4</indent>
 			<name>Set Build Version from Jenkins BUILD_NUMBER</name>
 		</step>
-		<step action='Log Message'>
-			<Level type='3'>4</Level>
-			<Message>Build Type has been set to %BUILD_VERSION%</Message>
-			<buildfailsteps type='11'>0</buildfailsteps>
-			<condcomparison type='3'>1</condcomparison>
-			<condexpr>%BUILD_TYPE%</condexpr>
-			<continueonfail type='3'>1</continueonfail>
-			<indent type='3'>4</indent>
-			<name>Echo Build Number Message</name>
-		</step>
 		<step action='Set Macro'>
 			<MacroDescr>Third segment of the release version, usually a "patch" number.  A release will have a specific number while Dev work will use the build number mod 1000 (can only be three digitis).</MacroDescr>
 			<MacroName>RELEASE_VERSION_THIRDSEGMENT</MacroName>
