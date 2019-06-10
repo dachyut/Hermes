@@ -87,20 +87,7 @@ $buildFile = "{0}\build\datacastle.bld" -f $working_directory
 $logFile = """{0}\Build.log""" -f $working_directory
 
 "Prior to running build, verify connection to " + $RemoteResources
-foreach ($resource in $RemoteResources)
-{
-    $status = (Test-NetConnection -ComputerName $resource -InformationLevel "Detailed")
-    if ($status.PingSucceeded)
-    {
-        "Successfully connected to: $resource."
-    }
-    Else
-    {
-        Write-Host ($status | Format-List | Out-String)
-        "Problem connecting to $resource, FAILING BUILD."
-        Exit 1
-    }
-}
+
 
 Write-Output $cmd $buildFile WORKING_DIRECTORY=$working_directory MACBUILD=$MacBuild MACBUILD_USER=$MacBuildUsername MACBUILD_PWD=$MacBuildPassword BUILD_TYPE=$BuildType TFSBUILDTYPE=$TFSBuildType OUTPUTSUBDIR=$BuildBrandIndex RUN_UNIT_TESTS_OBFUSCATED=false RUN_UNIT_TESTS=true TEST_TYPE=Minimum BUILD_BRAND_INDEX=$BuildBrandIndex @OptionalArgs /logfile $logFile /nologo /nooutput
 & $cmd $buildFile WORKING_DIRECTORY=$working_directory MACBUILD=$MacBuild MACBUILD_USER=$MacBuildUsername MACBUILD_PWD=$MacBuildPassword BUILD_TYPE=$BuildType TFSBUILDTYPE=$TFSBuildType OUTPUTSUBDIR=$BuildBrandIndex RUN_UNIT_TESTS_OBFUSCATED=false RUN_UNIT_TESTS=true TEST_TYPE=Minimum BUILD_BRAND_INDEX=$BuildBrandIndex @OptionalArgs /logfile $logFile /nologo /nooutput
